@@ -78,35 +78,26 @@ class Tasks
     // Задача 2.10: Вывод дней недели
     public void printDays(string x)
     {
-        switch (x.ToLower())
+        // Массив дней недели
+        string[] days = { "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье" };
+    
+        // Приводим введённую строку к нижнему регистру для корректного сравнения
+        int startIndex = Array.IndexOf(days, x.ToLower());
+
+        // Если день недели найден, выводим его и все последующие
+        if (startIndex != -1)
         {
-            case "понедельник":
-                Console.WriteLine("понедельник");
-                goto case "вторник";
-            case "вторник":
-                Console.WriteLine("вторник");
-                goto case "среда";
-            case "среда":
-                Console.WriteLine("среда");
-                goto case "четверг";
-            case "четверг":
-                Console.WriteLine("четверг");
-                goto case "пятница";
-            case "пятница":
-                Console.WriteLine("пятница");
-                goto case "суббота";
-            case "суббота":
-                Console.WriteLine("суббота");
-                goto case "воскресенье";
-            case "воскресенье":
-                Console.WriteLine("воскресенье");
-                break;
-            default:
-                Console.WriteLine("это не день недели");
-                break;
+            for (int i = startIndex; i < days.Length; i++)
+            {
+                Console.WriteLine(days[i]);
+            }
+        }
+        else
+        {
+            Console.WriteLine("это не день недели");
         }
     }
-
+    
     // Задача 3.2: Числа от x до 0
     public string reverseListNums(int x)
     {
